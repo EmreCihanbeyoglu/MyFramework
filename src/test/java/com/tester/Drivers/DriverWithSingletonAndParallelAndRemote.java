@@ -23,9 +23,9 @@ import java.net.URL;
  * Grid  - Remote hub and node (by means of remote_chrome)
  */
 
-public class DriverWithSingletonAndRemoteAndGrid {
+public class DriverWithSingletonAndParallelAndRemote {
 
-    private DriverWithSingletonAndRemoteAndGrid() {
+    private DriverWithSingletonAndParallelAndRemote() {
     }
 
     // InheritableThreadLocal  --> this is like a container, bag, pool.
