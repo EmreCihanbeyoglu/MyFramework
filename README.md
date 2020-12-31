@@ -72,8 +72,3 @@ These classes can be extended in time by experience.
 1. Configuration.properties: You can store some common information here. Key-value structured java file. Locate it main folder of the project. 
 2. feature files: under resources folder (resources folder java klasorunun kardesi)
 3. excel files: under resources folder 
-
-## Rename a file
-
-You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
-
