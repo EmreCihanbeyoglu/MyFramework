@@ -93,9 +93,9 @@ public class ExcelUtils {
      * @return returns Object 2-D array. If excel cell stores numerical value, it gets value as numeric and
      *         convert it to String. So you can use this value without loosing data. Especially phone numbers!
      */
-    public Object[][] getDataArrayAsObjectWithoutFirstRow() {
+    public String[][] getDataArrayAsObjectWithoutFirstRow() {
 
-        Object[][] data = new Object[rowCount() - 1][columnCount()];
+        String[][] data = new String[rowCount() - 1][columnCount()];
 
         for (int i = 1; i < rowCount(); i++) {
             Row row = workSheet.getRow(i);
