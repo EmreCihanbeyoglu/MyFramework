@@ -3,6 +3,7 @@ package com.tester;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.*;
 
 import org.apache.poi.ss.usermodel.*;
@@ -81,6 +82,37 @@ public class ExcelUtils {
             for (int j = 0; j < columnCount(); j++) {
                 String value = getCellData(i, j);
                 data[i-1][j] = value;
+            }
+        }
+        return data;
+
+    }
+
+    /**
+     *
+     * @return returns Object 2-D array. If excel cell stores numerical value, it gets value as numeric and
+     *         convert it to String. So you can use this value without loosing data. Especially phone numbers!
+     */
+    public Object[][] getDataArrayAsObjectWithoutFirstRow() {
+
+        Object[][] data = new Object[rowCount() - 1][columnCount()];
+
+        for (int i = 1; i < rowCount(); i++) {
+            Row row = workSheet.getRow(i);
+            for (int j = 0; j < columnCount(); j++) {
+                Cell cell = row.getCell(j);
+                switch (cell.getCellType()) {
+                    case STRING:
+                        data[i - 1][j]=workSheet.getRow(i).getCell(j).getStringCellValue();
+                        break;
+                    case NUMERIC:
+                        Double doubleValue =  workSheet.getRow(i).getCell(j).getNumericCellValue();
+                        BigDecimal bd = new BigDecimal(doubleValue.toString());
+                        Long longValue = bd.longValue();
+                        String strValue = Long.toString(longValue).trim();
+                        data[i - 1][j]= strValue;
+                        break;
+                }
             }
         }
         return data;
