@@ -23,6 +23,7 @@ import org.testng.Assert;
 
 public class BrowserUtils {
 
+
     /**
      * takes screenshot
      * @param name
